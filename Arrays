@@ -1,0 +1,217 @@
+Question 1: Write a c++ program to find the maximum and minimum numbers from the given array.
+Code Solution:
+#include <iostream>
+using namespace std;
+
+const int SIZE = 5;
+
+int main() {
+    int arr[SIZE];
+
+    cout << "Enter " << SIZE << " numbers: ";
+    for (int i = 0; i < SIZE; i++) {
+        cin >> arr[i];
+    }
+
+    int maxNum = INT_MIN, minNum = INT_MAX;
+    for (int i = 0; i < SIZE; i++) {
+        if (arr[i] > maxNum) {
+            maxNum = arr[i];
+        }
+        if (arr[i] < minNum) {
+            minNum = arr[i];
+        }
+    }
+
+    cout << "Maximum number: " << maxNum << endl;
+    cout << "Minimum number: " << minNum << endl;
+
+    return 0;
+}
+----------------------------------------------------------------------------------------------------------------------
+Question 2: Write a c++ program to search for a given value from the given array.
+Code Solution:
+#include <iostream>
+using namespace std;
+
+const int SIZE = 5;
+
+int main() {
+    int arr[SIZE];
+
+    cout << "Enter " << SIZE << " numbers: ";
+    for (int i = 0; i < SIZE; i++) {
+        cin >> arr[i];
+    }
+
+    int searchValue;
+    cout << "Enter a value to search for: ";
+    cin >> searchValue;
+
+    bool found = false;
+    for (int i = 0; i < SIZE; i++) {
+        if (arr[i] == searchValue) {
+            found = true;
+            cout << "Value found at index " << i << endl;
+        }
+    }
+
+    if (!found) {
+        cout << "Value not found in array\n";
+    }
+
+    return 0;
+}
+---------------------------------------------------------------------------------------------------------------------
+Question 3: Given an array, count numbers whose last element is 2, 3, or 9.
+Code Solution:
+#include <iostream>
+using namespace std;
+
+const int SIZE = 7;
+
+int main() {
+    int arr[SIZE] = { 12, 23, 32, 41, 59, 68, 79 };
+
+    int count = 0;
+    for (int i = 0; i < SIZE; i++) {
+        int lastDigit = arr[i] % 10;
+        if (lastDigit == 2 || lastDigit == 3 || lastDigit == 9) {
+            count++;
+        }
+    }
+
+    cout << "Count of numbers whose last digit is 2, 3, or 9: " << count << endl;
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------
+Question 4: Write a program to input two matrices and check whether they are equal.
+Code Solution:
+#include <iostream>
+using namespace std;
+
+const int ROWS = 5;
+const int COLS = 5;
+
+int main() {
+    int mat1[ROWS][COLS];
+    int mat2[ROWS][COLS];
+
+    cout << "Enter " << ROWS*COLS << " elements of matrix 1: " << endl;
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            cin >> mat1[i][j];
+        }
+    }
+
+    cout << "Enter " << ROWS*COLS << " elements of matrix 2: " << endl;
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            cin >> mat2[i][j];
+        }
+    }
+
+    bool equal = true;
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            if (mat1[i][j] != mat2[i][j]) {
+                equal = false;
+                break;
+            }
+        }
+        if (!equal) {
+            break;
+        }
+    }
+
+    if (equal) {
+        cout << "Matrices are equal" << endl;
+    } else {
+        cout << "Matrices are not equal" << endl;
+    }
+
+    return 0;
+}
+-----------------------------------------------------------------------------------------------------------------------
+Question 5: Write a program to find the position of an element in a 2d array.
+Code Solution:
+#include <iostream>
+using namespace std;
+
+const int ROWS = 5;
+const int COLS = 5;
+
+int main() {
+    int arr[ROWS][COLS];
+
+    cout << "Enter " << ROWS*COLS << " elements of matrix: " << endl;
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            cin >> arr[i][j];
+        }
+    }
+
+    int searchValue;
+    cout << "Enter a value to search for: ";
+    cin >> searchValue;
+
+    bool found = false;
+    int row, col;
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            if (arr[i][j] == searchValue) {
+                found = true;
+                row = i;
+                col = j;
+                break;
+            }
+        }
+        if (found) {
+            break;
+        }
+    }
+
+    if (found) {
+        cout << "Value found at position (" << row << ", " << col << ")" << endl;
+    } else {
+        cout << "Value not found in array" << endl;
+    }
+
+    return 0;
+}
+------------------------------------------------------------------------------------------------------------------------------
+Question 6: Write a program to print sum of the first row and last row separately.
+Code Solution: 
+#include <iostream>
+using namespace std;
+
+const int ROWS = 5;
+const int COLS = 5;
+
+int main() {
+    int arr[ROWS][COLS];
+
+    cout << "Enter " << ROWS*COLS << " elements of matrix: " << endl;
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            cin >> arr[i][j];
+        }
+    }
+
+    int sumFirstRow = 0;
+    for (int j = 0; j < COLS; j++) {
+        sumFirstRow += arr[0][j];
+    }
+
+    int sumLastRow = 0;
+    for (int j = 0; j < COLS; j++) {
+        sumLastRow += arr[ROWS-1][j];
+    }
+
+    cout << "Sum of first row: " << sumFirstRow << endl;
+    cout << "Sum of last row: " << sumLastRow << endl;
+
+    return 0;
+}
+----------------------------------------------------------------------------------------------------------------------------

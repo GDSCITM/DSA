@@ -3,6 +3,7 @@
 ### This repo is created to learn DSA together in any language with resources and questions to practice
 
 ARRAY QUESTIONS
+
 Problem 1:
 Write a c++ program to find the maximum and minimum numbers from the given array.
  
